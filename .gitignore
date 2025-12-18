@@ -4,5 +4,5 @@ __pycache__/
 .vscode/
 .idea/
 
-# Wyniki działania programu (tego nie wrzucamy, każdy sobie wygeneruje)
+# Wyniki działania programu
 results/
