@@ -42,6 +42,7 @@ Biblioteka do przetwarzania obrazu wykorzystywana m.in. do:
     \item detekcji konturów,
     \item operacji morfologicznych.
 \end{itemize}
+Korzystamy również z biblioteki \texttt{imutils}, która jest zestawem prostych helperów rozwiązujących typowe problemy w OpenCV.
 
 \subsection{Haar Cascade}
 Gotowy klasyfikator \texttt{haarcascade\_plate.xml} służący do detekcji tablic rejestracyjnych.  
@@ -85,14 +86,14 @@ data/
 % ---------------------------------------------------------
 \section{Opis działania systemu}
 
-\subsection{1. Detekcja tablicy}
+\subsection{Detekcja tablicy}
 System wykorzystuje dwa podejścia:
 \begin{enumerate}
     \item \textbf{Haar Cascade} – szybka detekcja prostokątów o proporcjach tablicy.
     \item \textbf{Analiza konturów} – metoda zapasowa, gdy Haar nie wykryje tablicy.
 \end{enumerate}
 
-\subsection{2. Preprocessing}
+\subsection{Preprocessing}
 Wycięty fragment tablicy jest:
 \begin{itemize}
     \item powiększany,
@@ -103,7 +104,7 @@ Wycięty fragment tablicy jest:
     \item przycinany i otaczany białą ramką.
 \end{itemize}
 
-\subsection{3. OCR}
+\subsection{OCR}
 Tesseract odczytuje tekst z przygotowanego obrazu.  
 Następnie:
 \begin{itemize}
@@ -112,7 +113,7 @@ Następnie:
     \item wynik jest oceniany punktowo (scoring).
 \end{itemize}
 
-\subsection{4. Wybór najlepszego wyniku}
+\subsection{Wybór najlepszego wyniku}
 System wybiera wynik o najwyższym score, preferując:
 \begin{itemize}
     \item długość 4--9 znaków,
@@ -161,7 +162,7 @@ W projekcie użyto:
 \end{itemize}
 
 \subsection{Heurystyki i scoring}
-Po odczycie tekstu zastosowano heurystyki poprawiające wynik:
+Po odczycie tekstu zastosowano (już wcześniej wspomniane) heurystyki poprawiające wynik:
 \begin{itemize}
     \item zamiana cyfr na litery i odwrotnie (np. 0↔O, 1↔I),
     \item preferowanie tablic zaczynających się od dwóch liter,
@@ -227,4 +228,3 @@ Podsumowanie działania systemu, jego skuteczności oraz możliwych kierunków r
 
 % ---------------------------------------------------------
 \end{document}
-
